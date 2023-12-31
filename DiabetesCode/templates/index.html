@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SelfDoc</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h3,
+        p {
+            font-family: 'Poppins', 'sans-serif';
+        }
+
+        body {
+            background-image: url("{% static 'Diabetes/images/bg.jpg' %}");
+            background-size: cover;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: row-reverse;
+            /* width: 50%; */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .details {
+            align-items: end;
+            width: 50%;
+        }
+
+        .details1 {
+            width: 50%;
+        }
+
+        .details .heading h1 {
+            font-family: 'Poppins', 'sans-serif';
+            justify-content: center;
+            /* text-align: center; */
+            /* margin-right: 150px; */
+            margin-top: 5px;
+            font-size: 3rem;
+            /* margin-left: 50%; */
+        }
+
+        .details .heading h1 span {
+            color: red;
+        }
+
+        .details .title h3 {
+
+            /* text-align: left; */
+            /* align-items: center; */
+            /* text-align: center; */
+            font-size: 2rem;
+            font-weight: 300;
+            margin-top: 30px;
+            /* margin-left: 29%; */
+        }
+
+        form input {
+            font-family: 'Poppins', 'sans-serif';
+            background-color: rgb(220, 34, 96);
+            border: 2px solid rgb(220, 34, 96);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            /* margin-left: 52%; */
+            font-size: 1.2rem;
+            padding: 10 50px;
+            transition: 0.2s;
+        }
+
+        /* form input:hover {
+            background-color: rgb(136, 208, 239);
+            border: 2px solid rgb(136, 208, 239);
+            color: black;
+            cursor: pointer;
+        } */
+
+        form input:focus {
+            animation: inputAnimation 0.3s;
+        }
+
+        .disclaimer {
+            text-align: justify;
+            text-justify: inter-word;
+            /* width: 50%; */
+            /* margin-left: 51%; */
+            margin-top: 85px;
+        }
+
+        .disclaimer h3 {
+            font-size: 1.2rem;
+        }
+
+        .disclaimer p {
+            font-size: 0.9rem;
+        }
+
+        @keyframes inputAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="info">
+        <div class="details">
+            <div class="heading">
+                <h1>
+                    Welcome to <span>SelfDoc</span>
+                </h1>
+            </div>
+            <div class="title">
+                <h3>Predict Your Diabetes</h3>
+            </div>
+
+            <form action="predict">
+                <input type="submit" value="Predict Now">
+            </form>
+
+            <div class="disclaimer">
+                <h3>Disclaimer</h3>
+                <p>This website is created solely for the purpose of a university project. The information provided on
+                    this website is not intended to be a substitute for professional medical advice, diagnosis, or
+                    treatment. Always seek the advice of your physician or other qualified healthcare provider with any
+                    questions you may have regarding a medical condition. Never disregard professional medical advice or
+                    delay in seeking it because of something you have read on this website. Reliance on any information
+                    provided by this website is solely at your own risk.</p>
+            </div>
+        </div>
+        <div class="details1">
+
+        </div>
+    </div>
+</body>
+
+</html>

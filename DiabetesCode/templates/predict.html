@@ -1,0 +1,248 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            font-family: 'Poppins', 'sans-serif';
+        }
+
+        body {
+            background-image: url("{'Diabetes/images/bg1.jpg' %}");
+            background-size: cover;
+            /* display: flex;
+            flex-direction: row-reverse; */
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .main-content {
+            /* margin-right: 10%; */
+            width: 50%;
+        }
+
+        h2,
+        h3 {
+            font-weight: 300;
+        }
+
+        .main-content .title h2 {
+            text-align: center;
+        }
+
+        table {
+            border: 2px solid rgb(213, 233, 241);
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 300;
+            background-color: rgb(213, 233, 241);
+            align-items: center;
+            margin: auto;
+        }
+
+        form table tr td input {
+            border: none;
+            border-bottom: 2px solid black;
+            background-color: transparent;
+            font-size: medium;
+            font-family: 'Poppins', 'sans-serif';
+        }
+
+        table tr td input:focus {
+            border-color: black;
+            animation: inputAnimation 0.3s;
+        }
+
+        table tr td h3 {
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .predict-button {
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .submit {
+            font-family: 'Poppins', 'sans-serif';
+            /* padding: 10px; */
+            /* width: 100%; */
+            padding-inline: 30px; 
+            border: 2px solid rgb(220, 34, 96);
+            background-color: rgb(220, 34, 96);
+            color: white;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 10px;
+            margin-left: 40%;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .submit:hover {
+            background-color: rgb(220, 34, 96);
+            border: 2px solid rgb(220, 34, 96);
+            color: white;
+            font-weight: 500;
+        }
+
+        .submit:focus {
+            animation: inputAnimation 0.3s;
+        }
+
+        /* .result {
+            display: flex;
+            flex-direction: row;
+        } */
+
+        .result h2 {
+            width: 100%;
+            /* margin-left: 20%; */
+            text-align:start;
+        }
+
+        .result h2 span {
+            color: rgb(220, 34, 96);
+            font-weight: 500;
+        }
+
+        .result h2 a {
+            text-decoration: none;
+            border: 2px solid rgb(220, 34, 96);
+            border-radius: 10px;
+            background-color: rgb(220, 34, 96);
+            color: white;
+            font-size: 15px;
+        }
+
+        .result h2 a:focus{
+            animation: inputAnimation 0.3s;
+        }
+
+        /* .disclaimer {
+            width: 50%;
+            margin-left: 0;
+        } */
+
+        @keyframes inputAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="main-content">
+            <!-- <div class="heading">
+            <h1>Predict your Diabetes</h1>
+        </div> -->
+            <div class="title">
+                <h2>Enter the following details</h2>
+            </div>
+            <form action="result">
+                <table>
+                    <tr>
+                        <td align="left">
+                            <h3>Pregnancies</h3>
+                        </td>
+                        <td><input type="text" name="a1" required></td>
+                        <td align="left">
+                            <p>(0 - 17)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <h3>Glucose</h3>
+                        </td>
+                        <td><input type="text" name="a2" required></td>
+                        <td align="left">
+                            <p>(0 - 200)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <h3>Blood Pressure</h3>
+                        </td>
+                        <td><input type="text" name="a3" required></td>
+                        <td align="left">
+                            <p>(0 - 150)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <h3>Insulin</h3>
+                        </td>
+                        <td><input type="text" name="a4" required></td>
+                        <td align="left">
+                            <p>(0 - 850)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <h3>BMI</h3>
+                        </td>
+                        <td><input type="text" name="a5" required></td>
+                        <td align="left">
+                            <p>(20 - 90)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <h3>Age</h3>
+                        </td>
+                        <td><input type="text" name="a6" required></td>
+                    </tr>
+                </table>
+                <div class="predict-button">
+                    <a href="result.html"><input class="submit" type="submit" value="Predict"></a>
+                </div>
+                <!-- <input class="submit" type="submit" value="Predict"> -->
+            </form>
+            <div class="result">
+                <h2>Result : <span>{{result1}}</span><a href="suggetions.html">{{suggetions}}</a></h2>
+            </div>
+
+        </div>
+        <div class="extra-space">
+
+        </div>
+    </div>
+</body>
+
+</html>
